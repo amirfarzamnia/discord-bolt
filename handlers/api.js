@@ -50,13 +50,7 @@ export default class API {
                 /** The data received from the promise. */
                 const promise = new Promise((resolve, reject) => {
                     /** The address of the target URL. */
-                    const address = `${this.api}/v${this.version}/${endpoint.replace(/{([^}]+)}/g, (_, i) => {
-                        /** If the parameter doesn't exist, throw a new error. */
-                        if (!parameters[i]) throw new Error(`The required parameter [${i}] doesn't exist.`);
-
-                        /** Return the parameter to be replaced. */
-                        return parameters[i];
-                    })}`;
+                    const address = `${this.api}/v${this.version}/${endpoint.replace(/{([^}]+)}/g, (_, i) => parameters[i])}`;
 
                     /** Constructing the full URL for the API endpoint. */
                     const url = new URL(address);
@@ -92,9 +86,9 @@ export default class API {
                             try {
                                 /** Try to parse the JSON data and resolve it. */
                                 resolve(JSON.parse(data));
-                            } catch (error) {
-                                /** In the event of any errors, reject the promise with the error. */
-                                reject(error);
+                            } catch {
+                                /** If the parsing process failed, return the data if it exists; if not, return an empty object. */
+                                resolve(data || {});
                             }
                         });
                     });
