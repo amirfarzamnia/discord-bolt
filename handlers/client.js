@@ -95,6 +95,9 @@ export default class Client {
 
     /** Disconnects the client from the Discord API gateway. */
     disconnect() {
+        /** If the socket doesn't exist, do nothing. */
+        if (!this.socket) return;
+
         /** Closing WebSocket connection initiated by the client */
         this.socket.close(1000, 'Client initiated disconnect');
 
