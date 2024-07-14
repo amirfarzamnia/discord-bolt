@@ -10,6 +10,7 @@ export default class Client {
      * @param {string} token - The authentication token for the bot.
      * @param {Object} [options={}] - Optional parameters.
      * @param {number} [options.version=10] - API version to use.
+     * @param {boolean} [options.debug=false] - Should debugging features be enabled?
      * @param {boolean} [options.reconnect=true] - Whether to automatically reconnect on disconnect.
      * @param {number} [options.reconnectInterval=5000] - Interval in milliseconds between reconnect attempts.
      * @param {number} [options.maxReconnectAttempts=10] - Maximum number of reconnect attempts.
@@ -26,6 +27,9 @@ export default class Client {
 
         /** API version to use. */
         this.version = 10;
+
+        /** Should debugging features be enabled? */
+        this.debug = false;
 
         /** Whether to automatically reconnect on disconnect. */
         this.reconnect = true;
@@ -100,8 +104,8 @@ export default class Client {
 
     /** Handles the 'open' event of the WebSocket connection. */
     onOpen() {
-        /** Logging connection status if in development environment */
-        if (process.env.NODE_ENV === 'development') console.log('Connected to the gateway');
+        /** Logging connection status if debug mode is enabled. */
+        if (this.debug) console.log('Connected to the gateway');
     }
 
     /**
@@ -112,8 +116,8 @@ export default class Client {
      */
 
     onClose(code, reason) {
-        /** Logging disconnection details if in development environment */
-        if (process.env.NODE_ENV === 'development') console.log(`Disconnected from the gateway with code: ${code}, reason: ${reason}`);
+        /** Logging disconnection details if debug mode is enabled. */
+        if (this.debug) console.log(`Disconnected from the gateway with code: ${code}, reason: ${reason}`);
 
         /** Attempting to reconnect under specific conditions */
         if (![1000, 1001].includes(code) && this.reconnect && this.reconnectAttempts < this.maxReconnectAttempts) setTimeout(() => this.reconnectAttempts++ && this.connect(), this.reconnectInterval);
@@ -126,8 +130,8 @@ export default class Client {
      */
 
     onError(error) {
-        /** Logging WebSocket errors if in development environment */
-        if (process.env.NODE_ENV === 'development') console.error('WebSocket error:', error);
+        /** Logging WebSocket errors if debug mode is enabled. */
+        if (this.debug) console.error('WebSocket error:', error);
     }
 
     /**
@@ -156,7 +160,7 @@ export default class Client {
 
             case 11: {
                 /** Opcode 11: Heartbeat acknowledgment */
-                if (process.env.NODE_ENV === 'development') console.log('Heartbeat acknowledged');
+                if (this.debug) console.log('Heartbeat acknowledged');
 
                 break;
             }
