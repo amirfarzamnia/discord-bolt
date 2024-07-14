@@ -173,7 +173,7 @@ export default class Client {
     /** Starts sending periodic heartbeats to the Discord API gateway. */
     heartbeat() {
         /** Sending heartbeat messages periodically */
-        setInterval(() => this.socket.send(JSON.stringify({ op: 1, d: this.sequence })), this.heartbeatInterval);
+        const interval = setInterval(() => (this.socket ? this.socket.send(JSON.stringify({ op: 1, d: this.sequence })) : clearInterval(interval)), this.heartbeatInterval);
     }
 
     /** Sends identification payload to the Discord API gateway. */
