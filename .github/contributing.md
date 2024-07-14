@@ -1,4 +1,4 @@
-# Contributing to [Discord Lite](https://github.com/amirfarzamnia/discord-lite)
+# Contributing to [Discord Bolt](https://github.com/amirfarzamnia/discord-bolt)
 
 Thank you for your interest in contributing to our project! Whether you are reporting bugs, suggesting features, or contributing code or documentation, we appreciate your help.
 
@@ -45,4 +45,4 @@ Please review and adhere to our [Code of Conduct](code_of_conduct.md) throughout
 
 If you have any questions about contributing to our project, please contact [Amir Farzamnia](https://github.com/amirfarzamnia).
 
-Thank you for contributing to [Discord Lite](https://github.com/amirfarzamnia/discord-lite)!
+Thank you for contributing to [Discord Bolt](https://github.com/amirfarzamnia/discord-bolt)!

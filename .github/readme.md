@@ -1,12 +1,12 @@
-# Discord Lite
+# Discord Bolt
 
-Discord Lite is a high-performance Node.js library tailored for building Discord bots with speed and simplicity in mind.
+Discord Bolt is a high-performance Node.js library tailored for building Discord bots with speed and simplicity in mind.
 
 ---
 
-Discord Lite stands out as the fastest and most straightforward library for creating Discord bots in Node.js. Originally developed for handling complex tasks at [Bot Studio](https://botstudioo.com), it's heavily optimized for efficiency. Every feature directly mirrors the functionality outlined in the [Discord API documentation](https://discord.com/developers/docs), ensuring seamless integration and comprehensive coverage.
+Discord Bolt stands out as the fastest and most straightforward library for creating Discord bots in Node.js. Originally developed for handling complex tasks at [Bot Studio](https://botstudioo.com), it's heavily optimized for efficiency. Every feature directly mirrors the functionality outlined in the [Discord API documentation](https://discord.com/developers/docs), ensuring seamless integration and comprehensive coverage.
 
-Designed to be lightweight and optimized for speed, Discord Lite minimizes complexity, making it easier to work with compared to other Discord libraries. By interfacing directly with [Discord's official APIs](https://discord.com/developers/docs), Discord Lite eliminates the need for additional documentation beyond what Discord itself provides.
+Designed to be lightweight and optimized for speed, Discord Bolt minimizes complexity, making it easier to work with compared to other Discord libraries. By interfacing directly with [Discord's official APIs](https://discord.com/developers/docs), Discord Bolt eliminates the need for additional documentation beyond what Discord itself provides.
 
 ## Key Features
 
@@ -17,7 +17,7 @@ Designed to be lightweight and optimized for speed, Discord Lite minimizes compl
 ## Getting Started Example
 
 ```javascript
-import { Client, API } from "discord-lite";
+import { Client, API } from "discord-bolt";
 
 const token = "YOUR_DISCORD_BOT_TOKEN";
 
@@ -31,11 +31,11 @@ client.on("MESSAGE_CREATE", ({ author, channel_id }) => !author.bot && api.creat
 
 ## Intents Management
 
-Intents specify which events your bot wishes to receive from Discord. Discord Lite uses a numeric approach for intents, such as `512` for `GUILD_MESSAGES`. Calculate intents using external tools like [Discord Intents Calculator](https://discord-intents-calculator.vercel.app) and directly input them into Discord Lite.
+Intents specify which events your bot wishes to receive from Discord. Discord Bolt uses a numeric approach for intents, such as `512` for `GUILD_MESSAGES`. Calculate intents using external tools like [Discord Intents Calculator](https://discord-intents-calculator.vercel.app) and directly input them into Discord Bolt.
 
 ## Customizing API Version
 
-By default, Discord Lite uses `v10` of [Discord's API endpoints](https://discord.com/developers/docs). Customize the version using:
+By default, Discord Bolt uses `v10` of [Discord's API endpoints](https://discord.com/developers/docs). Customize the version using:
 
 ```javascript
 const api = new API("YOUR_DISCORD_BOT_TOKEN", { version: 10 });
