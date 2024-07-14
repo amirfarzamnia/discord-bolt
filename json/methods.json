@@ -1,0 +1,618 @@
+{
+  "Get Current Application": {
+    "method": "GET",
+    "endpoint": "applications/@me"
+  },
+  "Edit Current Application": {
+    "method": "PATCH",
+    "endpoint": "applications/@me"
+  },
+  "Get Application Role Connection Metadata Records": {
+    "method": "GET",
+    "endpoint": "applications/{application_id}/role-connections/metadata"
+  },
+  "Update Application Role Connection Metadata Records": {
+    "method": "PUT",
+    "endpoint": "applications/{application_id}/role-connections/metadata"
+  },
+  "Get Guild Audit Log": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/audit-logs"
+  },
+  "List Auto Moderation Rules for Guild": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/auto-moderation/rules"
+  },
+  "Get Auto Moderation Rule": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/auto-moderation/rules/{auto_moderation_rule_id}"
+  },
+  "Create Auto Moderation Rule": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/auto-moderation/rules"
+  },
+  "Modify Auto Moderation Rule": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/auto-moderation/rules/{auto_moderation_rule_id}"
+  },
+  "Delete Auto Moderation Rule": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/auto-moderation/rules/{auto_moderation_rule_id}"
+  },
+  "Get Channel": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}"
+  },
+  "Modify Channel": {
+    "method": "PATCH",
+    "endpoint": "channels/{channel_id}"
+  },
+  "DeleteClose Channel": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}"
+  },
+  "Get Channel Messages": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/messages"
+  },
+  "Get Channel Message": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/messages/{message_id}"
+  },
+  "Create Message": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/messages"
+  },
+  "Crosspost Message": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/crosspost"
+  },
+  "Create Reaction": {
+    "method": "PUT",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}/@me"
+  },
+  "Delete Own Reaction": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}/@me"
+  },
+  "Delete User Reaction": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}/{user_id}"
+  },
+  "Get Reactions": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}"
+  },
+  "Delete All Reactions": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions"
+  },
+  "Delete All Reactions for Emoji": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}"
+  },
+  "Edit Message": {
+    "method": "PATCH",
+    "endpoint": "channels/{channel_id}/messages/{message_id}"
+  },
+  "Delete Message": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}"
+  },
+  "Bulk Delete Messages": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/messages/bulk-delete"
+  },
+  "Edit Channel Permissions": {
+    "method": "PUT",
+    "endpoint": "channels/{channel_id}/permissions/{overwrite_id}"
+  },
+  "Get Channel Invites": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/invites"
+  },
+  "Create Channel Invite": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/invites"
+  },
+  "Delete Channel Permission": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/permissions/{overwrite_id}"
+  },
+  "Follow Announcement Channel": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/followers"
+  },
+  "Trigger Typing Indicator": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/typing"
+  },
+  "Get Pinned Messages": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/pins"
+  },
+  "Pin Message": {
+    "method": "PUT",
+    "endpoint": "channels/{channel_id}/pins/{message_id}"
+  },
+  "Unpin Message": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/pins/{message_id}"
+  },
+  "Group DM Add Recipient": {
+    "method": "PUT",
+    "endpoint": "channels/{channel_id}/recipients/{user_id}"
+  },
+  "Group DM Remove Recipient": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/recipients/{user_id}"
+  },
+  "Start Thread from Message": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/threads"
+  },
+  "Start Thread without Message": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/threads"
+  },
+  "Start Thread in Forum or Media Channel": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/threads"
+  },
+  "Join Thread": {
+    "method": "PUT",
+    "endpoint": "channels/{channel_id}/thread-members/@me"
+  },
+  "Add Thread Member": {
+    "method": "PUT",
+    "endpoint": "channels/{channel_id}/thread-members/{user_id}"
+  },
+  "Leave Thread": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/thread-members/@me"
+  },
+  "Remove Thread Member": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/thread-members/{user_id}"
+  },
+  "Get Thread Member": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/thread-members/{user_id}"
+  },
+  "List Thread Members": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/thread-members"
+  },
+  "List Public Archived Threads": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/threads/archived/public"
+  },
+  "List Private Archived Threads": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/threads/archived/private"
+  },
+  "List Joined Private Archived Threads": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/users/@me/threads/archived/private"
+  },
+  "List Guild Emojis": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/emojis"
+  },
+  "Get Guild Emoji": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/emojis/{emoji_id}"
+  },
+  "Create Guild Emoji": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/emojis"
+  },
+  "Modify Guild Emoji": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/emojis/{emoji_id}"
+  },
+  "Delete Guild Emoji": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/emojis/{emoji_id}"
+  },
+  "Create Guild": {
+    "method": "POST",
+    "endpoint": "guilds"
+  },
+  "Get Guild": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}"
+  },
+  "Get Guild Preview": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/preview"
+  },
+  "Modify Guild": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}"
+  },
+  "Delete Guild": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}"
+  },
+  "Get Guild Channels": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/channels"
+  },
+  "Create Guild Channel": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/channels"
+  },
+  "Modify Guild Channel Positions": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/channels"
+  },
+  "List Active Guild Threads": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/threads/active"
+  },
+  "Get Guild Member": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/members/{user_id}"
+  },
+  "List Guild Members": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/members"
+  },
+  "Search Guild Members": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/members/search"
+  },
+  "Add Guild Member": {
+    "method": "PUT",
+    "endpoint": "guilds/{guild_id}/members/{user_id}"
+  },
+  "Modify Guild Member": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/members/{user_id}"
+  },
+  "Modify Current Member": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/members/@me"
+  },
+  "Add Guild Member Role": {
+    "method": "PUT",
+    "endpoint": "guilds/{guild_id}/members/{user_id}/roles/{role_id}"
+  },
+  "Remove Guild Member Role": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/members/{user_id}/roles/{role_id}"
+  },
+  "Remove Guild Member": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/members/{user_id}"
+  },
+  "Get Guild Bans": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/bans"
+  },
+  "Get Guild Ban": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/bans/{user_id}"
+  },
+  "Create Guild Ban": {
+    "method": "PUT",
+    "endpoint": "guilds/{guild_id}/bans/{user_id}"
+  },
+  "Remove Guild Ban": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/bans/{user_id}"
+  },
+  "Bulk Guild Ban": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/bulk-ban"
+  },
+  "Get Guild Roles": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/roles"
+  },
+  "Create Guild Role": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/roles"
+  },
+  "Modify Guild Role Positions": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/roles"
+  },
+  "Modify Guild Role": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/roles/{role_id}"
+  },
+  "Modify Guild MFA Level": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/mfa"
+  },
+  "Delete Guild Role": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/roles/{role_id}"
+  },
+  "Get Guild Prune Count": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/prune"
+  },
+  "Begin Guild Prune": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/prune"
+  },
+  "Get Guild Voice Regions": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/regions"
+  },
+  "Get Guild Invites": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/invites"
+  },
+  "Get Guild Integrations": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/integrations"
+  },
+  "Delete Guild Integration": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/integrations/{integration_id}"
+  },
+  "Get Guild Widget Settings": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/widget"
+  },
+  "Modify Guild Widget": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/widget"
+  },
+  "Get Guild Widget": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/widget_json"
+  },
+  "Get Guild Vanity URL": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/vanity-url"
+  },
+  "Get Guild Widget Image": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/widget_png"
+  },
+  "Get Guild Welcome Screen": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/welcome-screen"
+  },
+  "Modify Guild Welcome Screen": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/welcome-screen"
+  },
+  "Get Guild Onboarding": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/onboarding"
+  },
+  "Modify Guild Onboarding": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/onboarding"
+  },
+  "Modify Current User Voice State": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/voice-states/@me"
+  },
+  "Modify User Voice State": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/voice-states/{user_id}"
+  },
+  "List Scheduled Events for Guild": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/scheduled-events"
+  },
+  "Create Guild Scheduled Event": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/scheduled-events"
+  },
+  "Get Guild Scheduled Event": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/scheduled-events/{guild_scheduled_event_id}"
+  },
+  "Modify Guild Scheduled Event": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/scheduled-events/{guild_scheduled_event_id}"
+  },
+  "Delete Guild Scheduled Event": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/scheduled-events/{guild_scheduled_event_id}"
+  },
+  "Get Guild Scheduled Event Users": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/scheduled-events/{guild_scheduled_event_id}/users"
+  },
+  "Get Guild Template": {
+    "method": "GET",
+    "endpoint": "guilds/templates/{template_code}"
+  },
+  "Create Guild from Guild Template": {
+    "method": "POST",
+    "endpoint": "guilds/templates/{template_code}"
+  },
+  "Get Guild Templates": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/templates"
+  },
+  "Create Guild Template": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/templates"
+  },
+  "Sync Guild Template": {
+    "method": "PUT",
+    "endpoint": "guilds/{guild_id}/templates/{template_code}"
+  },
+  "Modify Guild Template": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/templates/{template_code}"
+  },
+  "Delete Guild Template": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/templates/{template_code}"
+  },
+  "Get Invite": {
+    "method": "GET",
+    "endpoint": "invites/{invite_code}"
+  },
+  "Delete Invite": {
+    "method": "DELETE",
+    "endpoint": "invites/{invite_code}"
+  },
+  "Get Answer Voters": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/polls/{message_id}/answers/{answer_id}"
+  },
+  "End Poll": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/polls/{message_id}/expire"
+  },
+  "Create Stage Instance": {
+    "method": "POST",
+    "endpoint": "stage-instances"
+  },
+  "Get Stage Instance": {
+    "method": "GET",
+    "endpoint": "stage-instances/{channel_id}"
+  },
+  "Modify Stage Instance": {
+    "method": "PATCH",
+    "endpoint": "stage-instances/{channel_id}"
+  },
+  "Delete Stage Instance": {
+    "method": "DELETE",
+    "endpoint": "stage-instances/{channel_id}"
+  },
+  "Get Sticker": {
+    "method": "GET",
+    "endpoint": "stickers/{sticker_id}"
+  },
+  "List Sticker Packs": {
+    "method": "GET",
+    "endpoint": "sticker-packs"
+  },
+  "List Guild Stickers": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/stickers"
+  },
+  "Get Guild Sticker": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/stickers/{sticker_id}"
+  },
+  "Create Guild Sticker": {
+    "method": "POST",
+    "endpoint": "guilds/{guild_id}/stickers"
+  },
+  "Modify Guild Sticker": {
+    "method": "PATCH",
+    "endpoint": "guilds/{guild_id}/stickers/{sticker_id}"
+  },
+  "Delete Guild Sticker": {
+    "method": "DELETE",
+    "endpoint": "guilds/{guild_id}/stickers/{sticker_id}"
+  },
+  "Get Current User": {
+    "method": "GET",
+    "endpoint": "users/@me"
+  },
+  "Get User": {
+    "method": "GET",
+    "endpoint": "users/{user_id}"
+  },
+  "Modify Current User": {
+    "method": "PATCH",
+    "endpoint": "users/@me"
+  },
+  "Get Current User Guilds": {
+    "method": "GET",
+    "endpoint": "users/@me/guilds"
+  },
+  "Get Current User Guild Member": {
+    "method": "GET",
+    "endpoint": "users/@me/guilds/{guild_id}/member"
+  },
+  "Leave Guild": {
+    "method": "DELETE",
+    "endpoint": "users/@me/guilds/{guild_id}"
+  },
+  "Create DM": {
+    "method": "POST",
+    "endpoint": "users/@me/channels"
+  },
+  "Create Group DM": {
+    "method": "POST",
+    "endpoint": "users/@me/channels"
+  },
+  "Get Current User Connections": {
+    "method": "GET",
+    "endpoint": "users/@me/connections"
+  },
+  "Get Current User Application Role Connection": {
+    "method": "GET",
+    "endpoint": "users/@me/applications/{application_id}/role-connection"
+  },
+  "Update Current User Application Role Connection": {
+    "method": "PUT",
+    "endpoint": "users/@me/applications/{application_id}/role-connection"
+  },
+  "List Voice Regions": {
+    "method": "GET",
+    "endpoint": "voice/regions"
+  },
+  "Create Webhook": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/webhooks"
+  },
+  "Get Guild Webhooks": {
+    "method": "GET",
+    "endpoint": "guilds/{guild_id}/webhooks"
+  },
+  "Get Webhook": {
+    "method": "GET",
+    "endpoint": "webhooks/{webhook_id}"
+  },
+  "Get Webhook with Token": {
+    "method": "GET",
+    "endpoint": "webhooks/{webhook_id}/{webhook_token}"
+  },
+  "Modify Webhook": {
+    "method": "PATCH",
+    "endpoint": "webhooks/{webhook_id}"
+  },
+  "Modify Webhook with Token": {
+    "method": "PATCH",
+    "endpoint": "webhooks/{webhook_id}/{webhook_token}"
+  },
+  "Delete Webhook": {
+    "method": "DELETE",
+    "endpoint": "webhooks/{webhook_id}"
+  },
+  "Delete Webhook with Token": {
+    "method": "DELETE",
+    "endpoint": "webhooks/{webhook_id}/{webhook_token}"
+  },
+  "Execute Webhook": {
+    "method": "POST",
+    "endpoint": "webhooks/{webhook_id}/{webhook_token}"
+  },
+  "Execute Slack-Compatible Webhook": {
+    "method": "POST",
+    "endpoint": "webhooks/{webhook_id}/{webhook_token}/slack"
+  },
+  "Execute GitHub-Compatible Webhook": {
+    "method": "POST",
+    "endpoint": "webhooks/{webhook_id}/{webhook_token}/github"
+  },
+  "Get Webhook Message": {
+    "method": "GET",
+    "endpoint": "webhooks/{webhook_id}/{webhook_token}/messages/{message_id}"
+  },
+  "Edit Webhook Message": {
+    "method": "PATCH",
+    "endpoint": "webhooks/{webhook_id}/{webhook_token}/messages/{message_id}"
+  },
+  "Delete Webhook Message": {
+    "method": "DELETE",
+    "endpoint": "webhooks/{webhook_id}/{webhook_token}/messages/{message_id}"
+  }
+}

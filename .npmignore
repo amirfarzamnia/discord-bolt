@@ -1,0 +1,4 @@
+.vscode
+.prettier*
+nodemon.json
+tests

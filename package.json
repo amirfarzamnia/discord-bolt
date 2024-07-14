@@ -1,0 +1,39 @@
+{
+  "name": "discord-lite",
+  "version": "1.0.0",
+  "description": "The fastest and most straightforward Discord bot library for Node.js.",
+  "main": "index.js",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amirfarzamnia/discord-lite.git"
+  },
+  "keywords": [
+    "discord",
+    "lite",
+    "fast",
+    "bot",
+    "robot",
+    "discord",
+    "bot",
+    "api",
+    "websocket",
+    "discord",
+    "api",
+    "discord",
+    "client"
+  ],
+  "author": "Amir Farzamnia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/amirfarzamnia/discord-lite/issues"
+  },
+  "homepage": "https://github.com/amirfarzamnia/discord-lite#readme",
+  "dependencies": {
+    "ws": "^8.18.0",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
