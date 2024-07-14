@@ -614,5 +614,113 @@
   "Delete Webhook Message": {
     "method": "DELETE",
     "endpoint": "webhooks/{webhook_id}/{webhook_token}/messages/{message_id}"
+  },
+  "Create Interaction Response": {
+    "method": "POST",
+    "endpoint": "interactions/{interaction_id}/{interaction_token}/callback"
+  },
+  "Get Original Interaction Response": {
+    "method": "GET",
+    "endpoint": "webhooks/{application_id}/{interaction_token}/messages/@original"
+  },
+  "Edit Original Interaction Response": {
+    "method": "PATCH",
+    "endpoint": "webhooks/{application_id}/{interaction_token}/messages/@original"
+  },
+  "Delete Original Interaction Response": {
+    "method": "DELETE",
+    "endpoint": "webhooks/{application_id}/{interaction_token}/messages/@original"
+  },
+  "Create Followup Message": {
+    "method": "POST",
+    "endpoint": "webhooks/{application_id}/{interaction_token}"
+  },
+  "Get Followup Message": {
+    "method": "GET",
+    "endpoint": "webhooks/{application_id}/{interaction_token}/messages/{message_id}"
+  },
+  "Edit Followup Message": {
+    "method": "PATCH",
+    "endpoint": "webhooks/{application_id}/{interaction_token}/messages/{message_id}"
+  },
+  "Delete Followup Message": {
+    "method": "DELETE",
+    "endpoint": "webhooks/{application_id}/{interaction_token}/messages/{message_id}"
+  },
+  "Get Global Application Commands": {
+    "method": "GET",
+    "endpoint": "applications/{application_id}/commands"
+  },
+  "Create Global Application Command": {
+    "method": "POST",
+    "endpoint": "applications/{application_id}/commands"
+  },
+  "Get Global Application Command": {
+    "method": "GET",
+    "endpoint": "applications/{application_id}/commands/{command_id}"
+  },
+  "Edit Global Application Command": {
+    "method": "PATCH",
+    "endpoint": "applications/{application_id}/commands/{command_id}"
+  },
+  "Delete Global Application Command": {
+    "method": "DELETE",
+    "endpoint": "applications/{application_id}/commands/{command_id}"
+  },
+  "Bulk Overwrite Global Application Commands": {
+    "method": "PUT",
+    "endpoint": "applications/{application_id}/commands"
+  },
+  "Get Guild Application Commands": {
+    "method": "GET",
+    "endpoint": "applications/{application_id}/guilds/{guild_id}/commands"
+  },
+  "Create Guild Application Command": {
+    "method": "POST",
+    "endpoint": "applications/{application_id}/guilds/{guild_id}/commands"
+  },
+  "Get Guild Application Command": {
+    "method": "GET",
+    "endpoint": "applications/{application_id}/guilds/{guild_id}/commands/{command_id}"
+  },
+  "Edit Guild Application Command": {
+    "method": "PATCH",
+    "endpoint": "applications/{application_id}/guilds/{guild_id}/commands/{command_id}"
+  },
+  "Delete Guild Application Command": {
+    "method": "DELETE",
+    "endpoint": "applications/{application_id}/guilds/{guild_id}/commands/{command_id}"
+  },
+  "Bulk Overwrite Guild Application Commands": {
+    "method": "PUT",
+    "endpoint": "applications/{application_id}/guilds/{guild_id}/commands"
+  },
+  "Get Guild Application Command Permissions": {
+    "method": "GET",
+    "endpoint": "applications/{application_id}/guilds/{guild_id}/commands/permissions"
+  },
+  "Get Application Command Permissions": {
+    "method": "GET",
+    "endpoint": "applications/{application_id}/guilds/{guild_id}/commands/{command_id}/permissions"
+  },
+  "Edit Application Command Permissions": {
+    "method": "PUT",
+    "endpoint": "applications/{application_id}/guilds/{guild_id}/commands/{command_id}/permissions"
+  },
+  "Get Gateway": {
+    "method": "GET",
+    "endpoint": "gateway"
+  },
+  "Get Gateway Bot": {
+    "method": "GET",
+    "endpoint": "gateway/bot"
+  },
+  "Get Current Bot Application Information": {
+    "method": "GET",
+    "endpoint": "oauth2/applications/@me"
+  },
+  "Get Current Authorization Information": {
+    "method": "GET",
+    "endpoint": "oauth2/@me"
   }
 }
