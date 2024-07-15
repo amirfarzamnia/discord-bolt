@@ -1,6 +1,6 @@
 import pkg from '../package.json' with { type: 'json' };
+import zlib from 'node:zlib';
 import WebSocket from 'ws';
-import zlib from 'zlib';
 
 /** Represents a Discord client that connects to the Discord API gateway using WebSocket. */
 export default class Client {
