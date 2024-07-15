@@ -1,6 +1,6 @@
 {
   "name": "discord-bolt",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "The fastest and most straightforward Discord bot library for Node.js.",
   "main": "index.js",
   "type": "module",

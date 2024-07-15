@@ -144,13 +144,18 @@ export default class Client {
      */
 
     onMessage(message) {
-        /** Handling incoming messages from the gateway */
-        const data = JSON.parse(message);
+        try {
+            /** Handling incoming messages from the gateway. */
+            message = JSON.parse(message);
+        } catch {
+            /** In case of any issues, the message should be an empty object. */
+            message = {};
+        }
 
-        switch (data.op) {
+        switch (message.op) {
             case 10: {
                 /** Opcode 10: Initial connection information */
-                this.heartbeatInterval = data.d.heartbeat_interval;
+                this.heartbeatInterval = message.d.heartbeat_interval;
 
                 /** Start sending heartbeats */
                 this.heartbeat();
@@ -170,7 +175,7 @@ export default class Client {
 
             case 0: {
                 /** Opcode 0: Dispatch event */
-                this.handleDispatch(data);
+                this.handleDispatch(message);
 
                 break;
             }
