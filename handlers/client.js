@@ -12,8 +12,6 @@ export default class Client {
      * @param {number} [options.version=10] - API version to use.
      * @param {boolean} [options.debug=false] - Should debugging features be enabled?
      * @param {boolean} [options.reconnect=true] - Whether to automatically reconnect on disconnect.
-     * @param {number} [options.reconnectInterval=5000] - Interval in milliseconds between reconnect attempts.
-     * @param {number} [options.maxReconnectAttempts=10] - Maximum number of reconnect attempts.
      * @param {number} [options.disconnectStatusCode=1000] - WebSocket close code for intentional disconnect.
      * @param {string} [options.api='https://discord.com/api'] - Discord API base URL.
      */
@@ -33,12 +31,6 @@ export default class Client {
 
         /** Whether to automatically reconnect on disconnect. */
         this.reconnect = true;
-
-        /** Interval in milliseconds between reconnect attempts. */
-        this.reconnectInterval = 5000;
-
-        /** Maximum number of reconnect attempts. */
-        this.maxReconnectAttempts = 10;
 
         /** WebSocket close code for intentional disconnect. */
         this.disconnectStatusCode = 1000;
@@ -70,11 +62,11 @@ export default class Client {
         Object.assign(this, await response.json());
 
         if (response.ok) {
-            /** Establishing WebSocket connection to the gateway */
-            this.socket ||= new WebSocket(`${this.url}/?v=${this.version}&encoding=json&${this.zlib ? 'compress=zlib-stream' : ''}`);
+            /** If zlib compression exists, reset it. */
+            this.zlib?.reset();
 
-            /** Resetting the reconnect attempts. */
-            this.reconnectAttempts = 0;
+            /** Establishing WebSocket connection to the gateway */
+            this.socket = new WebSocket(`${this.url}/?v=${this.version}&encoding=json&${this.zlib ? 'compress=zlib-stream' : ''}`);
 
             /** Adding event handlers for the websocket "open" event. */
             this.socket.on('open', this.onOpen.bind(this));
@@ -123,7 +115,7 @@ export default class Client {
         if (this.debug) console.log(`Disconnected from the gateway with code: ${code}, reason: ${reason}`);
 
         /** Attempting to reconnect under specific conditions */
-        if (![1000, 1001].includes(code) && this.reconnect && this.reconnectAttempts < this.maxReconnectAttempts) setTimeout(() => this.reconnectAttempts++ && this.connect(), this.reconnectInterval);
+        if (![1000, 1001].includes(code) && this.reconnect) this.connect();
     }
 
     /**
