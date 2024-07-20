@@ -94,6 +94,9 @@ export default class Client {
         // Creating a new disconnect log.
         if (this.debug) console.log('The client has been disconnected');
 
+        /** This flag indicates whether the client is manually disconnected or not. Used for automatic reconnections. */
+        this.disconnected = true;
+
         // Closing WebSocket connection initiated by the client
         this.socket.close(1000, 'Client initiated disconnect');
 
@@ -119,7 +122,7 @@ export default class Client {
         if (this.debug) console.log(`Disconnected from the gateway with code: ${code}, reason: ${reason}`);
 
         // Attempting to reconnect under specific conditions
-        if (![1000, 1001].includes(code) && this.reconnect) this.connect();
+        if (!this.disconnected && this.reconnect) this.connect();
     }
 
     /**
