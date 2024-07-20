@@ -91,6 +91,9 @@ export default class Client {
         // If the socket doesn't exist, do nothing.
         if (!this.socket) return;
 
+        // Creating a new disconnect log.
+        if (this.debug) console.log('The client has been disconnected');
+
         // Closing WebSocket connection initiated by the client
         this.socket.close(1000, 'Client initiated disconnect');
 
@@ -177,12 +180,18 @@ export default class Client {
 
     /** Starts sending periodic heartbeats to the Discord API gateway. */
     heartbeat() {
+        // Creating a new log in debug mode.
+        if (this.debug) console.log('The heartbeat period has been started');
+
         // Sending heartbeat messages periodically
         const interval = setInterval(() => (this.socket ? this.socket.send(JSON.stringify({ op: 1, d: this.sequence })) : clearInterval(interval)), this.heartbeatInterval);
     }
 
     /** Sends identification payload to the Discord API gateway. */
     identify() {
+        // Creating a new log in debug mode.
+        if (this.debug) console.log('Identification payload has been sent');
+
         // Sending identification payload to the gateway
         this.socket.send(JSON.stringify({ op: 2, d: { token: this.token, compress: this.hasOwnProperty('zlib'), properties: { os: { darwin: 'macos', win32: 'windows' }[process.platform] || process.platform, browser: pkg.name, device: pkg.name }, intents: this.intents } }));
     }
@@ -200,6 +209,9 @@ export default class Client {
         // Assigning 'READY' data to the instance
         if (data.t === 'READY') Object.assign(this, data.d);
 
+        // Creating a new log in debug mode.
+        if (this.debug) console.log('Received event:', data.t);
+
         // Emitting event to registered handlers
         this.emit(data.t, data.d);
     }
@@ -212,6 +224,9 @@ export default class Client {
      */
 
     on(event, handler) {
+        // Creating a new log in debug mode.
+        if (this.debug) console.log('Registered event:', event);
+
         // Registering event handlers
         (this.events[event] ||= []).push(handler);
     }
@@ -224,6 +239,9 @@ export default class Client {
      */
 
     emit(event, data) {
+        // Creating a new log in debug mode.
+        if (this.debug) console.log('Emited event:', event);
+
         // Emitting events to registered handlers
         this.events[event]?.forEach((handler) => handler(data));
     }
