@@ -98,7 +98,7 @@ export default class Client {
         this.disconnected = true;
 
         // Closing WebSocket connection initiated by the client
-        this.socket.close(1000, 'Client initiated disconnect');
+        this.socket.close(this.disconnectStatusCode, 'Client initiated disconnect');
 
         // Deleting the socket property
         delete this.socket;
