@@ -69,6 +69,9 @@ export default class Client {
             /** Establishing WebSocket connection to the gateway */
             this.socket = new WebSocket(`${this.url}/?v=${this.version}&encoding=json&${this.zlib ? 'compress=zlib-stream' : ''}`);
 
+            // Make sure the client is fully restarted.
+            delete this.disconnected;
+
             // Adding event handlers for the websocket "open" event.
             this.socket.on('open', this.onOpen.bind(this));
 
