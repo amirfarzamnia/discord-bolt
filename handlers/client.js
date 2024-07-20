@@ -41,10 +41,10 @@ export default class Client {
         /** Creating zlib inflate object with specified options */
         this.zlib = zlib.createInflate({ chunkSize: 65535 });
 
-        /** Adding optional parameters. */
+        // Adding optional parameters.
         Object.assign(this, options);
 
-        /** If zlib is defined, listen for 'data' events and call onMessage */
+        // If zlib is defined, listen for 'data' events and call onMessage
         if (this.zlib) this.zlib.on('data', (chunk) => this.onMessage(chunk.toString('utf-8')));
     }
 
@@ -55,51 +55,52 @@ export default class Client {
      */
 
     async connect() {
-        /** Fetching gateway information from Discord API */
+        // Fetching gateway information from Discord API
         const response = await fetch(`${this.api}/v${this.version}/gateway/bot`, { headers: { Authorization: `Bot ${this.token}` } });
 
-        /** Assigning fetched data to the instance */
+        // Assigning fetched data to the instance
         Object.assign(this, await response.json());
 
+        // Checking if the response is OK.
         if (response.ok) {
-            /** If zlib compression exists, reset it. */
+            // If zlib compression exists, reset it.
             this.zlib?.reset();
 
             /** Establishing WebSocket connection to the gateway */
             this.socket = new WebSocket(`${this.url}/?v=${this.version}&encoding=json&${this.zlib ? 'compress=zlib-stream' : ''}`);
 
-            /** Adding event handlers for the websocket "open" event. */
+            // Adding event handlers for the websocket "open" event.
             this.socket.on('open', this.onOpen.bind(this));
 
-            /** Adding event handlers for the websocket "close" event. */
+            // Adding event handlers for the websocket "close" event.
             this.socket.on('close', this.onClose.bind(this));
 
-            /** Adding event handlers for the websocket "error" event. */
+            // Adding event handlers for the websocket "error" event.
             this.socket.on('error', this.onError.bind(this));
 
-            /** Adding event handlers for the websocket "message" event. */
+            // Adding event handlers for the websocket "message" event.
             this.socket.on('message', (data) => (this.hasOwnProperty('zlib') ? this.zlib.write(data) : this.onMessage(data)));
         }
 
-        /** Returning the response as the function's response. */
+        // Returning the response as the function's response.
         return response;
     }
 
     /** Disconnects the client from the Discord API gateway. */
     disconnect() {
-        /** If the socket doesn't exist, do nothing. */
+        // If the socket doesn't exist, do nothing.
         if (!this.socket) return;
 
-        /** Closing WebSocket connection initiated by the client */
+        // Closing WebSocket connection initiated by the client
         this.socket.close(1000, 'Client initiated disconnect');
 
-        /** Deleting the socket property */
+        // Deleting the socket property
         delete this.socket;
     }
 
     /** Handles the 'open' event of the WebSocket connection. */
     onOpen() {
-        /** Logging connection status if debug mode is enabled. */
+        // Logging connection status if debug mode is enabled.
         if (this.debug) console.log('Connected to the gateway');
     }
 
@@ -111,10 +112,10 @@ export default class Client {
      */
 
     onClose(code, reason) {
-        /** Logging disconnection details if debug mode is enabled. */
+        // Logging disconnection details if debug mode is enabled.
         if (this.debug) console.log(`Disconnected from the gateway with code: ${code}, reason: ${reason}`);
 
-        /** Attempting to reconnect under specific conditions */
+        // Attempting to reconnect under specific conditions
         if (![1000, 1001].includes(code) && this.reconnect) this.connect();
     }
 
@@ -125,7 +126,7 @@ export default class Client {
      */
 
     onError(error) {
-        /** Logging WebSocket errors if debug mode is enabled. */
+        // Logging WebSocket errors if debug mode is enabled.
         if (this.debug) console.error('WebSocket error:', error);
     }
 
@@ -137,10 +138,10 @@ export default class Client {
 
     onMessage(message) {
         try {
-            /** Handling incoming messages from the gateway. */
+            // Handling incoming messages from the gateway.
             message = JSON.parse(message);
         } catch {
-            /** In case of any issues, the message should be an empty object. */
+            // In case of any issues, the message should be an empty object.
             message = {};
         }
 
@@ -149,24 +150,24 @@ export default class Client {
                 /** Opcode 10: Initial connection information */
                 this.heartbeatInterval = message.d.heartbeat_interval;
 
-                /** Start sending heartbeats */
+                // Start sending heartbeats
                 this.heartbeat();
 
-                /** Identify with the server */
+                // Identify with the server
                 this.identify();
 
                 break;
             }
 
             case 11: {
-                /** Opcode 11: Heartbeat acknowledgment */
+                // Opcode 11: Heartbeat acknowledgment
                 if (this.debug) console.log('Heartbeat acknowledged');
 
                 break;
             }
 
             case 0: {
-                /** Opcode 0: Dispatch event */
+                // Opcode 0: Dispatch event
                 this.handleDispatch(message);
 
                 break;
@@ -176,13 +177,13 @@ export default class Client {
 
     /** Starts sending periodic heartbeats to the Discord API gateway. */
     heartbeat() {
-        /** Sending heartbeat messages periodically */
+        // Sending heartbeat messages periodically
         const interval = setInterval(() => (this.socket ? this.socket.send(JSON.stringify({ op: 1, d: this.sequence })) : clearInterval(interval)), this.heartbeatInterval);
     }
 
     /** Sends identification payload to the Discord API gateway. */
     identify() {
-        /** Sending identification payload to the gateway */
+        // Sending identification payload to the gateway
         this.socket.send(JSON.stringify({ op: 2, d: { token: this.token, compress: this.hasOwnProperty('zlib'), properties: { os: { darwin: 'macos', win32: 'windows' }[process.platform] || process.platform, browser: pkg.name, device: pkg.name }, intents: this.intents } }));
     }
 
@@ -193,13 +194,13 @@ export default class Client {
      */
 
     handleDispatch(data) {
-        /** Handling incoming dispatch events */
+        /** Handling incoming dispatch events*/
         this.sequence = data.s;
 
-        /** Assigning 'READY' data to the instance */
+        // Assigning 'READY' data to the instance
         if (data.t === 'READY') Object.assign(this, data.d);
 
-        /** Emitting event to registered handlers */
+        // Emitting event to registered handlers
         this.emit(data.t, data.d);
     }
 
@@ -211,7 +212,7 @@ export default class Client {
      */
 
     on(event, handler) {
-        /** Registering event handlers */
+        // Registering event handlers
         (this.events[event] ||= []).push(handler);
     }
 
@@ -223,7 +224,7 @@ export default class Client {
      */
 
     emit(event, data) {
-        /** Emitting events to registered handlers */
+        // Emitting events to registered handlers
         this.events[event]?.forEach((handler) => handler(data));
     }
 }
