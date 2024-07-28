@@ -58,8 +58,11 @@ export default class Client {
         // Fetching gateway information from Discord API
         const response = await fetch(`${this.api}/v${this.version}/gateway/bot`, { headers: { Authorization: `Bot ${this.token}` } });
 
+        // The json response.
+        const json = await response.json();
+
         // Assigning fetched data to the instance
-        Object.assign(this, await response.json());
+        Object.assign(this, json);
 
         // Checking if the response is OK.
         if (response.ok) {
@@ -86,7 +89,7 @@ export default class Client {
         }
 
         // Returning the response as the function's response.
-        return response;
+        return { response, json };
     }
 
     /** Disconnects the client from the Discord API gateway. */
