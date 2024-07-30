@@ -51,58 +51,6 @@
     "method": "DELETE",
     "endpoint": "channels/{channel_id}"
   },
-  "Get Channel Messages": {
-    "method": "GET",
-    "endpoint": "channels/{channel_id}/messages"
-  },
-  "Get Channel Message": {
-    "method": "GET",
-    "endpoint": "channels/{channel_id}/messages/{message_id}"
-  },
-  "Create Message": {
-    "method": "POST",
-    "endpoint": "channels/{channel_id}/messages"
-  },
-  "Crosspost Message": {
-    "method": "POST",
-    "endpoint": "channels/{channel_id}/messages/{message_id}/crosspost"
-  },
-  "Create Reaction": {
-    "method": "PUT",
-    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}/@me"
-  },
-  "Delete Own Reaction": {
-    "method": "DELETE",
-    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}/@me"
-  },
-  "Delete User Reaction": {
-    "method": "DELETE",
-    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}/{user_id}"
-  },
-  "Get Reactions": {
-    "method": "GET",
-    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}"
-  },
-  "Delete All Reactions": {
-    "method": "DELETE",
-    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions"
-  },
-  "Delete All Reactions for Emoji": {
-    "method": "DELETE",
-    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}"
-  },
-  "Edit Message": {
-    "method": "PATCH",
-    "endpoint": "channels/{channel_id}/messages/{message_id}"
-  },
-  "Delete Message": {
-    "method": "DELETE",
-    "endpoint": "channels/{channel_id}/messages/{message_id}"
-  },
-  "Bulk Delete Messages": {
-    "method": "POST",
-    "endpoint": "channels/{channel_id}/messages/bulk-delete"
-  },
   "Edit Channel Permissions": {
     "method": "PUT",
     "endpoint": "channels/{channel_id}/permissions/{overwrite_id}"
@@ -214,6 +162,26 @@
   "Delete Guild Emoji": {
     "method": "DELETE",
     "endpoint": "guilds/{guild_id}/emojis/{emoji_id}"
+  },
+  "List Application Emojis": {
+    "method": "GET",
+    "endpoint": "applications/{application_id}/emojis"
+  },
+  "Get Application Emoji": {
+    "method": "GET",
+    "endpoint": "applications/{application_id}/emojis/{emoji_id}"
+  },
+  "Create Application Emoji": {
+    "method": "POST",
+    "endpoint": "applications/{application_id}/emojis"
+  },
+  "Modify Application Emoji": {
+    "method": "PATCH",
+    "endpoint": "applications/{application_id}/emojis/{emoji_id}"
+  },
+  "Delete Application Emoji": {
+    "method": "DELETE",
+    "endpoint": "applications/{application_id}/emojis/{emoji_id}"
   },
   "Create Guild": {
     "method": "POST",
@@ -459,6 +427,58 @@
     "method": "DELETE",
     "endpoint": "invites/{invite_code}"
   },
+  "Get Channel Messages": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/messages"
+  },
+  "Get Channel Message": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/messages/{message_id}"
+  },
+  "Create Message": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/messages"
+  },
+  "Crosspost Message": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/crosspost"
+  },
+  "Create Reaction": {
+    "method": "PUT",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}/@me"
+  },
+  "Delete Own Reaction": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}/@me"
+  },
+  "Delete User Reaction": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}/{user_id}"
+  },
+  "Get Reactions": {
+    "method": "GET",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}"
+  },
+  "Delete All Reactions": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions"
+  },
+  "Delete All Reactions for Emoji": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}/reactions/{emoji}"
+  },
+  "Edit Message": {
+    "method": "PATCH",
+    "endpoint": "channels/{channel_id}/messages/{message_id}"
+  },
+  "Delete Message": {
+    "method": "DELETE",
+    "endpoint": "channels/{channel_id}/messages/{message_id}"
+  },
+  "Bulk Delete Messages": {
+    "method": "POST",
+    "endpoint": "channels/{channel_id}/messages/bulk-delete"
+  },
   "Get Answer Voters": {
     "method": "GET",
     "endpoint": "channels/{channel_id}/polls/{message_id}/answers/{answer_id}"
@@ -561,6 +581,10 @@
   },
   "Create Webhook": {
     "method": "POST",
+    "endpoint": "channels/{channel_id}/webhooks"
+  },
+  "Get Channel Webhooks": {
+    "method": "GET",
     "endpoint": "channels/{channel_id}/webhooks"
   },
   "Get Guild Webhooks": {
